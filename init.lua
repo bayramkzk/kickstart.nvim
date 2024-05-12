@@ -113,6 +113,14 @@ vim.cmd.aunmenu { 'PopUp.-1-' }
 
 -- Disable word wrapping
 vim.opt.wrap = false
+
+-- Set tab width options
+local tabwidth = 2
+vim.opt.tabstop = tabwidth
+vim.opt.softtabstop = tabwidth
+vim.opt.shiftwidth = tabwidth
+vim.opt.expandtab = true
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
