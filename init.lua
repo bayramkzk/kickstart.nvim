@@ -378,6 +378,11 @@ require('lazy').setup({
             require('telescope.themes').get_dropdown(),
           },
         },
+        pickers = {
+          find_files = {
+            find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
+          },
+        },
       }
 
       -- Enable Telescope extensions if they are installed
