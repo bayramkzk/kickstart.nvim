@@ -28,6 +28,7 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local vsc_ext = require 'dap.ext.vscode'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -43,11 +44,20 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'debugpy',
       },
     }
 
+    local continue = function()
+      local launch_path = '.vscode/launch.json'
+      if vim.fn.filereadable(launch_path) then
+        vsc_ext.load_launchjs(launch_path, { debugpy = { 'python' } })
+      end
+      dap.continue()
+    end
+
     -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+    vim.keymap.set('n', '<F5>', continue, { desc = 'Debug: Start/Continue' })
     vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
     vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
     vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
