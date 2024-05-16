@@ -584,6 +584,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        ansiblels = {},
         -- clangd = {},
         gopls = {},
         pyright = {},
@@ -913,6 +914,7 @@ require('lazy').setup({
   require 'custom.plugins.noice',
   require 'custom.plugins.codeium',
   require 'custom.plugins.scrollbar',
+  require 'custom.plugins.ansible',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
