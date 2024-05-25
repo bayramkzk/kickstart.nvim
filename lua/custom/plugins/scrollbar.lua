@@ -1,8 +1,13 @@
 return {
   'petertriho/nvim-scrollbar',
   config = function()
-    local colors = require('tokyonight.colors').setup()
+    local status_ok, colors = pcall(require, 'tokyonight.colors')
+    if not status_ok then
+      require('scrollbar').setup()
+      return
+    end
 
+    colors = colors.setup()
     require('scrollbar').setup {
       handle = { color = colors.fg_dark, blend = 0 },
       marks = {
