@@ -618,6 +618,7 @@ require('lazy').setup({
         json = { { 'prettierd', 'prettier' } },
         jsonc = { { 'prettierd', 'prettier' } },
         yaml = { { 'prettierd', 'prettier' } },
+        graphql = { { 'prettierd', 'prettier' } },
       },
     },
   },
