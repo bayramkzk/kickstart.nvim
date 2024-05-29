@@ -32,6 +32,14 @@ vim.cmd.aunmenu { 'PopUp.-1-' }
 -- Disable word wrapping
 vim.opt.wrap = false
 
+-- Code folding
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldcolumn = '0'
+vim.opt.foldtext = '...'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
 -- Set tab width options
 local tabwidth = 2
 vim.opt.tabstop = tabwidth
