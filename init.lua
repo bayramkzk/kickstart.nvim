@@ -111,6 +111,9 @@ vim.opt.mouse = 'a'
 vim.cmd.aunmenu { 'PopUp.How-to\\ disable\\ mouse' }
 vim.cmd.aunmenu { 'PopUp.-1-' }
 
+-- Disable word wrapping
+vim.opt.wrap = false
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -212,6 +215,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
+})
+
+-- Enable word wrapping specifically for markdown filetype
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  command = 'set wrap',
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
