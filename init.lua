@@ -852,6 +852,11 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
+      require('mini.starter').setup {
+        header = ' _  _ ___ _____   _____ __  __ \n| \\| | __/ _ \\ \\ / /_ _|  \\/  |\n| .` | _| (_) \\ V / | || |\\/| |\n|_|\\_|___\\___/ \\_/ |___|_|  |_|',
+        footer = '===============================',
+      }
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
