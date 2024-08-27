@@ -114,6 +114,15 @@ vim.cmd.aunmenu { 'PopUp.-1-' }
 -- Disable word wrapping
 vim.opt.wrap = false
 
+-- Set up code folding
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.opt.foldcolumn = '0'
+vim.opt.foldtext = '...'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
