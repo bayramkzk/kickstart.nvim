@@ -107,6 +107,10 @@ vim.opt.number = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
+-- Disable unnecessary mouse context options
+vim.cmd.aunmenu { 'PopUp.How-to\\ disable\\ mouse' }
+vim.cmd.aunmenu { 'PopUp.-1-' }
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
