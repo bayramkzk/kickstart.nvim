@@ -239,6 +239,17 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'set wrap',
 })
 
+-- Disable foldcolumn, signcolumn and line numbers for terminals
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = vim.api.nvim_create_augroup('terminal_settings', { clear = true }),
+  desc = 'Disable foldcolumn and signcolumn for terminals',
+  callback = function()
+    vim.opt_local.foldcolumn = '0'
+    vim.opt_local.signcolumn = 'no'
+    vim.opt_local.number = false
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
