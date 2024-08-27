@@ -886,6 +886,7 @@ require('lazy').setup({
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
+
         sources = {
           {
             name = 'lazydev',
@@ -896,9 +897,19 @@ require('lazy').setup({
           { name = 'luasnip' },
           { name = 'path' },
         },
+
+        formatting = {
+          format = require('lspkind').cmp_format {
+            mode = 'symbol',
+            maxwidth = 50,
+            ellipsis_char = '...',
+          },
+        },
       }
     end,
   },
+
+  { 'onsails/lspkind.nvim' },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
