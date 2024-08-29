@@ -123,6 +123,9 @@ vim.opt.foldtext = '...'
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 
+-- Specify view save and load options to exclude curdir
+vim.opt.viewoptions = { 'folds', 'cursor' }
+
 -- Set default tab width options
 local tabwidth = 2
 vim.opt.tabstop = tabwidth
