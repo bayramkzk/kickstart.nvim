@@ -282,6 +282,12 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
+-- Reset filetype for TXT file to temporarily fix TXT file startup time
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'text',
+  command = 'set ft&',
+})
+
 -- Enable and disable auto formatting buffer on save for conform.nvim
 vim.api.nvim_create_user_command('FormatDisable', function(args)
   if args.bang then
