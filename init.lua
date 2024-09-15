@@ -1001,9 +1001,16 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
-      require('mini.starter').setup {
+      local starter = require 'mini.starter'
+      starter.setup {
         header = ' _  _ ___ _____   _____ __  __ \n| \\| | __/ _ \\ \\ / /_ _|  \\/  |\n| .` | _| (_) \\ V / | || |\\/| |\n|_|\\_|___\\___/ \\_/ |___|_|  |_|',
         footer = '===============================',
+        items = {
+          starter.sections.builtin_actions(),
+          starter.sections.recent_files(3, false, function(path)
+            return ' (' .. vim.fn.fnamemodify(vim.fn.fnamemodify(path, ':h'), ':t') .. ')'
+          end),
+        },
       }
 
       -- ... and there is more!
