@@ -118,6 +118,7 @@ vim.opt.wrap = false
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.foldcolumn = '0'
 vim.opt.foldtext = '...'
 vim.opt.foldlevel = 99
