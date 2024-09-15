@@ -716,16 +716,21 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        ['ansible-lint'] = {},
         ansiblels = {},
         docker_compose_language_service = {},
         dockerls = {},
         gopls = {},
         pyright = {},
-        tsserver = {},
+        ts_ls = {},
         shellcheck = {},
         bashls = {},
         shfmt = {},
         hyprls = {},
+        prettier = {},
+        black = {},
+        isort = {},
+        clangd = {},
         lua_ls = {
           settings = {
             Lua = {
