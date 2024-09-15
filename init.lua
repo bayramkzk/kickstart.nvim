@@ -827,6 +827,13 @@ require('lazy').setup({
         graphql = { 'prettierd', 'prettier', stop_after_first = true },
         json = { 'prettierd', 'prettier', stop_after_first = true },
         jsonc = { 'prettierd', 'prettier', stop_after_first = true },
+        bash = { 'shfmt' },
+        sql = { 'sql_formatter' },
+      },
+      formatters = {
+        sql_formatter = {
+          prepend_args = { '-c', vim.fn.expand '~/.config/sql_formatter.json' },
+        },
       },
     },
   },
