@@ -213,12 +213,14 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Map specific filetypes based on pattern for LSP, formatter and linter auto attachment
 vim.filetype.add {
-  pattern = {
-    ['.*/hyprland%.conf'] = 'hyprlang',
+  filename = {
     ['docker-compose.yaml'] = 'yaml.docker-compose',
     ['docker-compose.yml'] = 'yaml.docker-compose',
     ['compose.yaml'] = 'yaml.docker-compose',
     ['compose.yml'] = 'yaml.docker-compose',
+  },
+  pattern = {
+    ['.*/hyprland%.conf'] = 'hyprlang',
   },
 }
 
@@ -238,7 +240,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Enable word wrapping specifically for markdown filetype
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'markdown',
+  pattern = { 'markdown' },
   command = 'set wrap',
 })
 
