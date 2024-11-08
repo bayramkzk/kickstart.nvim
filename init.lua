@@ -712,15 +712,12 @@ require('lazy').setup({
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      -- Enable the following language servers
-      --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-      --
-      --  Add any additional override configuration in the following tables. Available keys are:
-      --  - cmd (table): Override the default command used to start the server
-      --  - filetypes (table): Override the default list of associated filetypes for the server
-      --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-      --  - settings (table): Override the default settings passed when initializing the server.
-      --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local lspconfig = require 'lspconfig'
+
+      local function is_deno_project()
+        return lspconfig.util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) ~= nil
+      end
+
       local servers = {
         ['ansible-lint'] = {},
         ansiblels = {},
@@ -728,7 +725,23 @@ require('lazy').setup({
         dockerls = {},
         gopls = {},
         pyright = {},
-        ts_ls = {},
+        ts_ls = {
+          before_init = function()
+            if is_deno_project() then
+              return false
+            end
+          end,
+          root_dir = lspconfig.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json'),
+          single_file_support = false,
+        },
+        denols = {
+          root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
+          before_init = function()
+            if not is_deno_project() then
+              return false
+            end
+          end,
+        },
         jsonls = {
           settings = {
             json = {
