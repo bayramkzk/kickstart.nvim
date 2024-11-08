@@ -725,6 +725,9 @@ require('lazy').setup({
         dockerls = {},
         gopls = {},
         pyright = {},
+        phpactor = {},
+        ['php-cs-fixer'] = {},
+        emmet_language_server = {},
         ts_ls = {
           before_init = function()
             if is_deno_project() then
@@ -755,6 +758,7 @@ require('lazy').setup({
         shfmt = {},
         hyprls = {},
         prettier = {},
+        prismals = {},
         black = {},
         isort = {},
         clangd = {},
@@ -856,6 +860,7 @@ require('lazy').setup({
         jsonc = { 'prettierd', 'prettier', stop_after_first = true },
         bash = { 'shfmt' },
         sql = { 'sql_formatter' },
+        php = { 'php_cs_fixer' },
       },
       formatters = {
         sql_formatter = {
