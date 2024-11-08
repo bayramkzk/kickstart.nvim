@@ -580,6 +580,9 @@ require('lazy').setup({
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
+
+      -- To provide json lsp schemas
+      'b0o/schemastore.nvim',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -726,6 +729,14 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         ts_ls = {},
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas {},
+              validate = { enable = true },
+            },
+          },
+        },
         shellcheck = {},
         bashls = {},
         shfmt = {},
