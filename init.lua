@@ -209,6 +209,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Map TAB to :bnext and SHIFT+TAB to :bprev
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Move to next buffer', silent = true })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bprev<CR>', { desc = 'Move to previous buffer', silent = true })
+
+-- Close current buffer (:bd) using meta(alt)+w
+vim.keymap.set('n', '<M-w>', '<cmd>bd<CR>', { desc = 'Close buffer', silent = true })
+
 -- [[ Filetype Mappings ]]
 --  See `:help vim.filetype.add`
 
