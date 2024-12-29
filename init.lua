@@ -732,6 +732,7 @@ require('lazy').setup({
         dockerls = {},
         gopls = {},
         pyright = {},
+        elixirls = {},
         phpactor = {},
         ['php-cs-fixer'] = {},
         emmet_language_server = {},
