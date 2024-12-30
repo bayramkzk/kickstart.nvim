@@ -1095,6 +1095,45 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      max_lines = 5,
+    },
+  },
+
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    opts = {
+      panel = {
+        layout = {
+          position = 'right',
+          ratio = 0.5,
+        },
+      },
+      suggestion = {
+        auto_trigger = false,
+        keymap = {
+          accept = '<M-p>',
+        },
+      },
+    },
+    enabled = true,
+  },
+
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim', branch = 'master' },
+    },
+    build = 'make tiktoken',
+    opts = {},
+    enabled = true,
+  },
+
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
