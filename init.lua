@@ -751,6 +751,7 @@ require('lazy').setup({
         phpactor = {},
         ['php-cs-fixer'] = {},
         emmet_language_server = {},
+        actionlint = {},
         ts_ls = {
           before_init = function()
             if is_deno_project() then
