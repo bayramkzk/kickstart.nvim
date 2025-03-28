@@ -228,6 +228,10 @@ vim.filetype.add {
     ['docker-compose.yml'] = 'yaml.docker-compose',
     ['compose.yaml'] = 'yaml.docker-compose',
     ['compose.yml'] = 'yaml.docker-compose',
+    ['.env'] = 'config',
+    ['.env.*'] = 'config',
+    ['*.env'] = 'config',
+    ['*.env.*'] = 'config',
   },
   pattern = {
     ['.*/hyprland%.conf'] = 'hyprlang',
